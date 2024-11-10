@@ -1,0 +1,13 @@
+{% extends 'menu.html' %}
+{% block pagename %}Список заказов{% endblock %}
+<body>
+    {% block content %}
+<ul>
+{% for order in orders %}
+    <li>
+        <a href="{% url 'crm:order_list' order.pk %}">Заказ №{{ order.pk }}</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
+</body>

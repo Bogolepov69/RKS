@@ -1,0 +1,21 @@
+{% extends 'menu.html' %}
+{% block pagename %}Детали заказа №{{ order.pk }}{% endblock %}
+
+<body>
+    {% block content %}
+    <h1>Детали заказа №{{ order.pk }}</h1>
+    <ul>
+        <li><strong>Клиент:</strong> {{ order.client.name }}
+            {% if order.client.company %}({{ order.client.company }}){% endif %}</li>
+        <li><strong>VIN-номер:</strong> {{ order.vin_number }}</li>
+        <li><strong>Тип полуприцепа:</strong> {{ order.trailer_type }}</li>
+        <li><strong>Дата заказа:</strong> {{ order.order_date }}</li>
+        <li><strong>Дата сборки:</strong> {{ order.assembly_date }}</li>
+        <li><strong>Дата отгрузки:</strong> {% if order.shipping_date %}{{ order.shipping_date }}{% else %}Не отгружен{% endif %}</li>
+        <li><strong>Статус:</strong> {{ order.get_status_display }}</li>
+        <li><strong>Дополнительные опции:</strong> {{ order.additional_options }}</li>
+        <li><strong>Спецификация:</strong> {{ order.specification }}</li>
+    </ul>
+    {% endblock %}
+</body>
+

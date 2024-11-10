@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block pagename %}RKS CRM{% endblock %}</title>
+</head>
+<body>
+    <h1>RKS CRM</h1>
+    {% block menu %}
+        <a href="/">Главная страница</a><br>
+        <a href="order_list/">Заказы</a><br>
+        <a href="main/">Регистрация</a><br>
+    {% endblock %}
+    {% block content %}
+        <h2>
+            Выбирайте нужный раздел
+        </h2>
+    {% endblock %}
+</body>
+</html>
