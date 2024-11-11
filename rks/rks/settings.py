@@ -74,12 +74,11 @@ WSGI_APPLICATION = 'rks.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'RKS',
-        'USER': 'admin',
+        'NAME': 'postgres',
+        'USER': 'postgres',
         'PASSWORD': 'asdfgbvcxzB1',
         'HOST': 'localhost',
         'PORT': '5432',
-        'OPTIONS': {'options': '-c statement_timeout=2000'}
     }
 }
 

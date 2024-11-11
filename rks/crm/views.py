@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Client, Order, main
 from django import forms
 
+
 def order_list(request):
     orders = Order.objects.all()
     context = {'orders': orders}
