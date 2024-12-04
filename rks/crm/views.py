@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Client, Order, main
+from .models import Client, Order, main, Post
 from django import forms
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.shortcuts import render
 
 
 def order_list(request):
@@ -63,3 +65,18 @@ def order_detail(request, pk):
         'order': order,
     }
     return render(request, 'order_detail.html', context)
+
+
+def news(request):
+    posts = Post.objects.all().order_by('-created_at')
+    paginator = Paginator(posts, 3)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.get_page(1)
+    except EmptyPage:
+        page_obj = paginator.get_page(paginator.num_pages)
+
+    return render(request, 'news.html', {'page_obj': page_obj})
+

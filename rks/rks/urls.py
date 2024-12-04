@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from crm.views import order_list, main
+from crm.views import order_list, main, news
 from crm.views import sign_up_by_html
 from crm.views import order_detail
 
@@ -25,5 +25,7 @@ urlpatterns = [
     path('', main, name='main'),
     path('main/', sign_up_by_html, name='sign_up_by_html'),
     path('order_list/', order_list, name='order_list'),
+    path('news/', news, name='news'),
     path('order_detail/', order_detail, name='order_detail'),
+
 ]
